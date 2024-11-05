@@ -45,7 +45,7 @@ export class EscuelaComponent {
    );
   }
   listarFacultades(){
-    this.facultaService.getFacultades().subscribe((data)=>{
+    this.facultaService.getFacultad().subscribe((data)=>{
       this.facultades=data;
     });
   }

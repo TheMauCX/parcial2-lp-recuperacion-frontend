@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EscuelaService {
-  private apiUrl ='http://localhost:8080/api/escuelas';
+  private apiUrl ='http://localhost:8080/api/carreras';
   constructor(private http:HttpClient) { }
   //listar las escuelas
   getEscuelas():Observable<Escuela[]>{

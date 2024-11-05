@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { CategoriaComponent } from './categoria/categoria.component';
-import { ProductoComponent } from './producto/producto.component';
-import { ClienteComponent } from './cliente/cliente.component';
+import { TipoComponent } from './tipo/tipo.component';
 import { FacultadComponent } from './facultad/facultad.component';
 import { EscuelaComponent } from './escuela/escuela.component';
+import { MarcaComponent } from './producto/marca.component';
+import { CocheComponent } from './categoria/coche.component';
 
 export const routes: Routes = [
     {
@@ -13,19 +13,19 @@ export const routes: Routes = [
         title:'Home'
     },
     {
-        path:'categoria',
-        component:CategoriaComponent,
-        title:'Categoria'
+        path:'coche',
+        component:CocheComponent,
+        title:'Coche'
     },
     {
-        path:'cliente',
-        component:ClienteComponent,
-        title:'Cliente'
+        path:'tipo',
+        component: TipoComponent,
+        title:'Tipo'
     },
     {
-        path:'producto',
-        component:ProductoComponent,
-        title:'Producto'
+        path:'marca',
+        component: MarcaComponent,
+        title:'Marca'
     },
     {
         path:'facultad',

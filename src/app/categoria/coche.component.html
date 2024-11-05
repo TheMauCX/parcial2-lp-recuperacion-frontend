@@ -1,0 +1,79 @@
+<app-navbar></app-navbar>
+<app-card [titulo]="titulo" [icono]="icono"></app-card>
+<div class="container">
+    <button class="btn btn-success mt-3" role="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="mdo"><i class="fa-solid fa-plus"></i></button>
+    <div class="card mt-3">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ID COCHE</th>
+                    <th scope="col">MATRICULA</th>
+                    <th scope="col">NUMERO PUERTAS</th>
+                    <th scope="col">ID MARCA</th>
+                    <th scope="col">MARCA</th>
+                    <th scope="col">ID TIPO</th>
+                    <th scope="col">TIPO</th>
+                    <th scope="col" colspan="2">ACCION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let it of coches">
+                    <th scope="row">1</th>
+                    <td>{{it.id}}</td>
+                    <td>{{it.matricula}}</td>
+                    <td>{{it.numpuertas}}</td>
+                    <td>{{it.marca.id}}</td>
+                    <td>{{it.marca.nombre}}</td>
+                    <td>{{it.tipo.id}}</td>
+                    <td>{{it.tipo.nombre}}</td>
+                    <td>
+                      <button class="btn btn-warning" (click)="showDialogEdit(it.id)"><i class="fa-solid fa-pen-to-square"></i></button>
+                      <button class="btn btn-danger ms-2" (click)="deleteCoche(it.id)"><i class="fa-solid fa-pen-to-square"></i></button>   
+                    </td>
+                    
+                  </tr>                  
+                </tbody>
+              </table>
+        </div>
+      </div>
+</div>
+<div class="modal fade" id="exampleModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{{ op === 0 ? 'Crear COCHE' : 'Editar COCHE' }}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">MARCA:</label>
+                <select class="form-select" aria-label="Default select example" [(ngModel)]="coche.marca.id" name="marca" id="marca">
+                  <option *ngFor="let item of marcas" [value]="item.id">{{ item.nombre }}</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">TIPO:</label>
+                <select class="form-select" aria-label="Default select example" [(ngModel)]="coche.tipo.id" name="marca" id="marca">
+                  <option *ngFor="let item of tipos" [value]="item.id">{{ item.nombre }}</option>
+                </select>
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">MATRICULA:</label>
+              <input type="text" class="form-control" id="coche" name="coche"  [(ngModel)]="coche.matricula">
+            </div>  
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">NUMERO PUERTAS:</label>
+                <input type="text" class="form-control" id="coche" name="coche"  [(ngModel)]="coche.numpuertas">
+              </div>          
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="opcion()">{{ op === 0 ? 'Guardar' : 'Actualizar' }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
